@@ -6,18 +6,21 @@ question = (" What do you do?","Check your pockets?")
 answer = None
 sugested_action = ["inventory"]
 
-def run_text():
+
+
+def run_game():
     print(main_story[0])
-    print(question[1] + "Type y for yes, and n for no")
+    answer = str(input(question[1] + "Type y for yes, and n for no "))
     check_answer()
-    answer = input(str)
-    #next_story_line(0)
+    next_story_line(0)
+ 
 
 def next_story_line(current_story_line: int):
     current_story_line += 1
     print(main_story[current_story_line])
 
 def check_answer():
+    print(answer)
     if answer == "y":
         execute_sugested_action()
     elif answer == "n":
@@ -34,4 +37,4 @@ def open_inventory():
     for i in inventory:
         print(i)
 
-run_text()
+run_game()
